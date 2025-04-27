@@ -1,0 +1,144 @@
+/* Reset osnovnih stilova za doslednost */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Osnovni stil za telo stranice */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* Omogućava postavljanje header-a i footer-a na vrh i dno stranice */
+    height: 97vh;
+    /* Visina prozora preglednika */
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+    background-color: #25ac2cde;
+    color: white;
+    padding: 12px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Razmak između logotipa i naslova */
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    flex-grow: 1;
+    /* Omogućava da h1 bude centriran u sredini */
+}
+
+nav {
+    margin-left: auto;
+    /* Postavlja navigaciju na desnu stranu */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #25ac2cde;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.chart-container {
+    width: 60%; /* Širina kanvasa */
+    height: 500px; /* Povećaj visinu dijagrama */
+    margin: 30px auto; /* Centriraj dijagram i dodaj razmak između dijagrama */
+    display: flex; /* Uključi flex za centriranje */
+    justify-content: center; /* Centriraj dijagram */
+    align-items: center; /* Centriraj dijagram */
+}
+
+/* Dodatni stil za main, ako je potrebno */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Dodaj ovu liniju za vertikalno raspoređivanje */
+    align-items: center; /* Centriraj dijagrame horizontalno */
+    padding: 20px;
+    overflow: auto;
+}
+
+.kolona{
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pita {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.histogram {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
+
+hr {
+    border: 1px solid #25ac2cde; /* Boja i debljina */
+    width: 80%; /* Širina */
+    margin: 20px auto; /* Centriranje */
+}

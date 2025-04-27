@@ -1,0 +1,30 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Administrator sistema</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/prijava-admin'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="grid-container">
+            <button (click)="idiNaSpiskove()" class="btn"><i>Spiskovi</i></button>
+            <button (click)="idiNaAzuriranja()" class="btn"><i>Ažuriranja</i></button>
+            <button (click)="idiNaDeaktivacije()" class="btn"><i>(De)aktivacije</i></button>
+            <button (click)="idiNaZahteve()" class="btn"><i>Zahtevi</i></button>
+            <button (click)="idiNaDodavanjeDekoratera()" class="btn"><i>Dodavanje dekoratera</i></button>
+            <button (click)="idiNaDodavanjeFirmi()" class="btn"><i>Dodavanje firmi</i></button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

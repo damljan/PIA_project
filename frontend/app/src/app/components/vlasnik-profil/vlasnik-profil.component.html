@@ -1,0 +1,51 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Profil</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="profil-container">
+            <div class="profil-detalji">
+                <h2>{{ vlasnik.ime }} {{ vlasnik.prezime }}</h2>
+                <img [src]="'http://localhost:4000/uploads/profile_pictures/' + vlasnik.profilna_slika"
+                    alt="Profilna slika" class="profilna-slika">
+            </div>
+            <div class="profil-info">
+                <div class="info-row">
+                    <p><strong>Adresa:</strong></p>
+                    <p>{{ vlasnik.adresa }}</p>
+                </div>
+                <div class="info-row">
+                    <p><strong>E-mail:</strong></p>
+                    <p>{{ vlasnik.imejl }}</p>
+                </div>
+                <div class="info-row">
+                    <p><strong>Kontakt telefon:</strong></p>
+                    <p>{{ vlasnik.kontakt_telefon }}</p>
+                </div>
+                <div class="info-row">
+                    <p><strong>Kreditna kartica:</strong></p>
+                    <p>{{ vlasnik.kreditna_kartica }}</p>
+                </div>
+                <div class="info-row">
+                    <button (click)="idiNaAzuriranjeVlasnika()" class="btn-azuriraj">Ažuriraj podatke</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

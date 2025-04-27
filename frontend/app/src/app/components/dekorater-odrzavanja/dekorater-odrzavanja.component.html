@@ -1,0 +1,69 @@
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo-container">
+            <a routerLink=''>
+                <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+            </a>
+        </div>
+        <h1>Održavanja</h1>
+        <nav>
+            <ul>
+                <li><a routerLink='/dekorater'><i>Nazad</i></a></li>
+                <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <section class="table-section">
+        <h2 class="naziv">Neobrađena održavanja</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Datum početka</th>
+                        <th>Vreme početka</th>
+                        <th>Tip bašte</th>
+                        <th>Potvrda posla</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of zakazanaOdrzavanja">
+                        <td>{{p.pocetak_odrzavanja.split(' ')[0]}}</td>
+                        <td>{{p.pocetak_odrzavanja.split(' ')[1]}}</td>
+                        <td>{{p.tip_baste}}</td>
+                        <td>
+                            <button (click)="otvoriDialog(p)" class="prihvati">Potvrdi</button>
+                            <button (click)="odbijOdrzavanje(p.idP)" class="odbij">Odbij</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Dijalog forma -->
+    <div class="dialog" *ngIf="isDialogOpen">
+        <div class="dialog-content">
+            <h2>Završi održavanje</h2>
+            <table>
+                <tr>
+                    <td>Završetak:</td>
+                    <td>
+                        <input type="date" required [(ngModel)]="datum_zavrsetka" (ngModelChange)="resetError()">
+                        <input type="time" required [(ngModel)]="vreme_zavrsetka" (ngModelChange)="resetError()">
+                    </td>
+                </tr>
+            </table>
+            <button (click)="potvrdiZavrsi()">Potvrdi</button>
+            <button (click)="zatvoriDialog()">Otkaži</button>
+            <p class="error">
+                {{error}}
+            </p>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+</footer>
+</body>

@@ -1,0 +1,50 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Komentarisanje i ocenjivanje</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik-zakazivanja'><i>Nazad</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <table>
+                <tr>
+                    <td>
+                        <b>Komentar:</b>
+                    </td>
+                    <td>
+                        <textarea [(ngModel)]="komentar" (ngModelChange)="resetError()"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Ocena:</b>
+                    </td>
+                    <td>
+                        <input type="radio" name="ocena" value="1" [(ngModel)]="ocena" (ngModelChange)="resetError()"> 1
+                        <input type="radio" name="ocena" value="2" [(ngModel)]="ocena" (ngModelChange)="resetError()"> 2
+                        <input type="radio" name="ocena" value="3" [(ngModel)]="ocena" (ngModelChange)="resetError()"> 3
+                        <input type="radio" name="ocena" value="4" [(ngModel)]="ocena" (ngModelChange)="resetError()"> 4
+                        <input type="radio" name="ocena" value="5" [(ngModel)]="ocena" (ngModelChange)="resetError()"> 5
+                    </td>
+                </tr>
+            </table>
+            <button (click)="dodaj()">Potvrdi</button>
+            <p class="error">
+                {{error}}
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

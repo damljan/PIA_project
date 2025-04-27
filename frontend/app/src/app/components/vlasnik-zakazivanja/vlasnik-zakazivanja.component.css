@@ -1,0 +1,217 @@
+/* Reset osnovnih stilova za doslednost */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Osnovni stil za telo stranice */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Omogućava postavljanje header-a i footer-a na vrh i dno stranice */
+    height: 97vh; /* Visina prozora preglednika */
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+    background-color: #25ac2cde;
+    color: white;
+    padding: 12px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    min-height: 68px; /* Povećaj visinu po potrebi */
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmak između logotipa i naslova */
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    flex-grow: 1; /* Omogućava da h1 bude centriran u sredini */
+}
+
+nav {
+    margin-left: auto; /* Postavlja navigaciju na desnu stranu */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Stilizovanje glavnog sadržaja */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+}
+
+/* Sekcija za tabelu */
+.table-section {
+    width: 100%;
+    max-width: 1200px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 8px gray;
+    border-radius: 8px;
+    margin-bottom: 30px; /* Razmak između sekcija (tabela) */
+}
+
+/* Kontejner tabele sa scroll-om ako je potrebno */
+.table-container {
+    overflow-x: auto;
+}
+
+/* Stilizovanje tabele */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center; /* Centriranje teksta u td i th */
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: gray;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* Alternativne boje za redove */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover efekat na redovima */
+tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Za male ekrane */
+@media (max-width: 768px) {
+    .table-section {
+        padding: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+}
+
+/* Stilizovanje dugmadi */
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover efekat na dugme */
+button:hover {
+    background-color: darkred;
+}
+
+/* Stilizovanje dugmeta kada je u fokusu (opciono) */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 122, 61, 0.4);
+}
+
+/* Stilizacija neuređenih listi u tabeli */
+table ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+table ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+footer {
+    background-color: #25ac2cde;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.naziv {
+    margin-bottom: 30px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.plava {
+    background-color: lightskyblue;
+}
+
+.plava:hover {
+    background-color: deepskyblue;
+}

@@ -1,0 +1,198 @@
+/* Reset osnovnih stilova za doslednost */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Osnovni stil za telo stranice */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Omogućava postavljanje header-a i footer-a na vrh i dno stranice */
+    height: 97vh; /* Visina prozora preglednika */
+    background-color: rgb(234, 239, 226);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+    background-color: #25ac2cde;
+    color: white;
+    padding: 12px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmak između logotipa i naslova */
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    flex-grow: 1; /* Omogućava da h1 bude centriran u sredini */
+}
+
+nav {
+    margin-left: auto; /* Postavlja navigaciju na desnu stranu */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Stilizovanje glavnog sadržaja */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
+}
+
+.profil-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.profil-detalji {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profil-detalji h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.profilna-slika {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profil-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stilizovanje redova u "tabeli" */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.info-row p:first-child {
+    font-weight: bold;
+}
+
+/* Dodavanje boje i stilova */
+.profil-info {
+    background-color: #e8f5e9;
+}
+
+.profil-info p {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+footer {
+    background-color: #25ac2cde;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: rgb(51, 49, 49);
+}
+
+/* Stilizacija za dugme "Ažuriraj podatke" */
+.btn-azuriraj {
+    background-color: rgb(18, 118, 240);
+    color: white; 
+    border: none;
+    padding: 12px 12px;
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; /* Efekat prelaza na hover */
+    width: 100%;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-weight: bold;
+}
+
+/* Efekat kada se pređe mišem preko dugmeta */
+.btn-azuriraj:hover {
+    background-color: rgb(17, 81, 193); /* Tamnija zelena na hover */
+}

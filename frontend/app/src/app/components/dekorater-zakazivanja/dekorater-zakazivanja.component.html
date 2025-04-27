@@ -1,0 +1,114 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Zakazivanja</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/dekorater'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="table-section">
+            <h2 class="naziv">Neobrađena zakazivanja</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Datum početka</th>
+                            <th>Vreme početka</th>
+                            <th>Naziv firme</th>
+                            <th>Usluge</th>
+                            <th>Potvrda posla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of neobradjeniPosloviFirme">
+                            <td>{{p.pocetak.split(' ')[0]}}</td>
+                            <td>{{p.pocetak.split(' ')[1]}}</td>
+                            <td><i>{{p.firma}}</i></td>
+                            <td>
+                                <ul *ngFor="let u of p.odabrane_usluge">
+                                    <li>{{u.naziv}}</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <button (click)="potvrdiPosao(p.idP)" class="prihvati">Potvrdi</button>
+                                <button (click)="odbijPosao(p)" class="odbij">Odbij</button>
+                                <textarea placeholder="NAPOMENA: Komentar kod odbijenice."
+                                    [(ngModel)]="p.komentar"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="table-section">
+            <h2 class="naziv">Zaduženja - potvrđeni poslovi</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Datum početka</th>
+                            <th>Vreme početka</th>
+                            <th>Naziv firme</th>
+                            <th>Usluge</th>
+                            <th>Potvrda posla</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of zaduzenjaDekoratera">
+                            <td>{{p.pocetak.split(' ')[0]}}</td>
+                            <td>{{p.pocetak.split(' ')[1]}}</td>
+                            <td><i>{{p.firma}}</i></td>
+                            <td>
+                                <ul *ngFor="let u of p.odabrane_usluge">
+                                    <li>{{u.naziv}}</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <button (click)="otvoriDialog(p)" class="prihvati">Završi</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- Dijalog forma -->
+<div class="dialog" *ngIf="isDialogOpen">
+    <div class="dialog-content">
+        <h2>Završi posao</h2>
+        <table>
+            <tr>
+                <td>Fotografija:</td>
+                <td>
+                    <input type="file" (change)="onFileSelected($event)">
+                </td>
+            </tr>
+            <tr>
+                <td>Završetak:</td>
+                <td>
+                    <input type="date" required [(ngModel)]="datum_zavrsetka" (ngModelChange)="resetError()">
+                    <input type="time" required [(ngModel)]="vreme_zavrsetka" (ngModelChange)="resetError()">
+                </td>
+            </tr>
+        </table>
+        <button (click)="potvrdiZavrsi()" >Potvrdi</button>
+        <button (click)="zatvoriDialog()" >Otkaži</button>
+        <p class="error">
+            {{error}}
+        </p>
+    </div>
+</div>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

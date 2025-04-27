@@ -1,0 +1,35 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Zakazivanje odrzavanja</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik-odrzavanje'><i>Nazad</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section>
+            <table>
+                <td>Početak uređivanja:</td>
+                <td>
+                    <input type="date" [(ngModel)]="datum" required (ngModelChange)="resetError()">
+                    <input type="time" [(ngModel)]="vreme" required (ngModelChange)="resetError()">
+                </td>
+            </table>
+            <button (click)="zakazi()">Zakaži</button>
+            <p class="error">
+                {{error}}
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

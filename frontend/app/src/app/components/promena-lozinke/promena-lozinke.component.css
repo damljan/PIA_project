@@ -1,0 +1,153 @@
+/* Reset osnovnih stilova za doslednost */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stilizovanje tela stranice */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #333;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+    background-color: #25ac2cde;
+    color: white;
+    padding: 12px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Središnje poravnavanje sadržaja unutar zaglavlja */
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Raspored sa logotipom sa leve strane i naslovom centriran */
+    position: relative;
+}
+
+/* Stilizovanje logotipa i naslova */
+.logo-and-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 55px; /* Prilagodi veličinu prema potrebama */
+    height: auto;
+    margin-right: -40px; /* Razmak između logotipa i naslova */
+}
+
+.header-container h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center; /* Osiguraj da je naslov centriran unutar svog prostora */
+    flex-grow: 1; /* Omogućava naslovu da zauzme preostali prostor i bude centriran */
+    font-size: x-large;
+}
+
+nav {
+    margin-left: auto; /* Postavlja navigaciju na desnu stranu */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Stilizovanje glavnog sadržaja */
+main {
+    padding: 20px 0;
+    margin-top: 25px;
+}
+
+.update-password-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #25ac2cde;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:disabled {
+    background-color: #ccc;
+}
+
+button:hover {
+    background-color: #23c12bde;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Stilizovanje podnožja */
+footer {
+    background-color: #25ac2cde;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 99%;
+    font-size: 0.9rem;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+    overflow: hidden;
+}

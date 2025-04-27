@@ -1,0 +1,80 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>(De)aktivacije</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/admin'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava-admin'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="table-section">
+            <p class="black"><b>Spisak svih prihvaćenih vlasnika</b></p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ime i prezime</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let v of prihvaceniVlasnici">
+                        <td>{{v.ime}} {{v.prezime}}</td>
+                        <td class="button-cell">
+                            <button (click)="deaktivirajVlasnika(v.korisnicko_ime)" class="deactivate-button">Deaktiviraj</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="table-section-1">
+            <p class="black"><b>Spisak svih aktivnih dekoratera</b></p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ime i prezime</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of aktivniDekorateri">
+                        <td>{{d.ime}} {{d.prezime}}</td>
+                        <td class="button-cell">
+                            <button class="deactivate-button" (click)="deaktivirajDekoratera(d.korisnicko_ime)">Deaktiviraj</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="table-section-2">
+            <p class="black"><b>Spisak svih blokiranih dekoratera</b></p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ime i prezime</th>
+                        <th>Akcija</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of blokiraniDekorateri">
+                        <td>{{d.ime}} {{d.prezime}}</td>
+                        <td class="button-cell">
+                            <button class="activate-button" (click)="odblokirajDekoratera(d.korisnicko_ime)">Odblokiraj</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

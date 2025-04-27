@@ -1,0 +1,294 @@
+/* Reset osnovnih stilova */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stilizovanje tela */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #333;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+    background-color: #25ac2cde;
+    color: white;
+    padding: 12px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-and-title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+.header-container h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.pocetak {
+    margin-left: auto;
+}
+
+.pocetak ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.pocetak ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.pocetak ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Stilizovanje glavnog dela */
+main {
+    padding: 40px 0;
+    background-color: white;
+}
+
+section {
+    margin: 30px auto;
+    width: 85%;
+    padding: 25px;
+    border: 1px solid #25ac2cde;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #25ac2cde;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Opšte informacije - levit tekst, desni brojevi */
+.company-info .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.company-info .info-row p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.company-info .info-number {
+    font-weight: bold;
+    color: #25ac2c;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #25ac2cde;
+    margin: 10px 0;
+}
+
+/* Stilizacija za pretragu */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.error-msg {
+    color: red;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Stilizacija dugmadi */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #25ac2cde;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1e8e23;
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    margin: 0 10px; /* Dodavanje margine između dugmića */
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
+}
+
+/* Stilizacija tabele */
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #25ac2cde;
+    color: white;
+    font-weight: bold;
+}
+
+td i {
+    color: #777;
+}
+
+.link {
+    color: #007bff;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Sortiraj sekcija */
+.sort-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.sort-group {
+    text-align: center;
+}
+
+.sort-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Stilizovanje podnožja */
+footer {
+    background-color: #25ac2cde;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+    border-top-left-radius: 80px;
+    border-top-right-radius: 80px;
+}
+
+/* Stilizacija za galeriju */
+.gallery-section {
+    margin: 30px auto;
+    width: 85%;
+    padding: 25px;
+    border: 1px solid #25ac2cde;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #25ac2cde;
+    font-size: 1.8rem;
+}
+
+/* Stilizacija slika u galeriji */
+.gallery-section img {
+    width: 180px; /* Postavi željenu širinu */
+    height: auto; /* Očuvaj proporcije */
+    margin: 10px; /* Razmak između slika */
+    border-radius: 5px; /* Blago zaobljeni uglovi */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Blaga senka za slike */
+    object-fit: cover; /* Osiguraj da slike ne budu iskrivljene */
+}
+
+/* Stilizacija za modal */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000; /* Osiguraj da bude iznad ostalih elemenata */
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid white;
+}
+
+.gallery-section img {
+    cursor: pointer; /* Da pokaže da se može kliknuti */
+    transition: transform 0.2s; /* Efekat povećanja */
+}
+
+.gallery-section img:hover {
+    transform: scale(1.05); /* Uvećaj sliku na hover */
+}

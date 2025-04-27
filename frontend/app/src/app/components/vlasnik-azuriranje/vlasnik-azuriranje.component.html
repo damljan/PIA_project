@@ -1,0 +1,76 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Ažuriranja</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik-profil'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <p class="izabraniKorisnik">
+            <u>{{ vlasnik.ime }} {{ vlasnik.prezime }}</u>
+        </p>
+
+        <table>
+            <tr>
+                <td><b>Adresa:</b></td>
+                <td>
+                    <input type="text" [(ngModel)]="nova_adresa" (ngModelChange)="onChangeResetError()">
+                </td>
+                <td>
+                    <button (click)="azurirajAdresu()">Potvrdi</button>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Kontakt telefon:</b></td>
+                <td>
+                    <input type="text" placeholder="+38 . . ." [(ngModel)]="novi_kontakt_telefon"
+                        (ngModelChange)="onChangeResetError()">
+                </td>
+                <td>
+                    <button (click)="azurirajKontaktTelefon()">Potvrdi</button>
+                </td>
+            </tr>
+            <tr>
+                <td><b>E-mail adresa:</b></td>
+                <td>
+                    <input type="text" [(ngModel)]="novi_imejl" (ngModelChange)="onChangeResetError()">
+                </td>
+                <td>
+                    <button (click)="azurirajImejl()">Potvrdi</button>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Profilna slika:</b></td>
+                <td>
+                    <input type="file" id="profilnaSlika" (change)="onFileSelected($event)" />
+                </td>
+                <td>
+                    <button (click)="azurirajProfilnuSliku()">Potvrdi</button>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Kreditna kartica:</b></td>
+                <td>
+                    <input type="text" [(ngModel)]="novi_broj_kreditne_kartice" (ngModelChange)="onChangeResetError()">
+                </td>
+                <td>
+                    <button (click)="azurirajKreditnuKarticu()">Potvrdi</button>
+                </td>
+            </tr>
+        </table>
+        <p class="error">{{error}}</p>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

@@ -1,0 +1,31 @@
+<body>
+    <main>
+        <h1>
+            <i>
+                Vaša mašta - vaša bašta
+            </i>
+        </h1>
+        <div class="login-container">
+            <h2>
+                Prijava administratora
+            </h2>
+            <form action="#" method="post">
+                <label for="username">
+                    Korisničko ime:
+                </label>
+                <input type="text" name="username" required [(ngModel)]="kor_ime" (ngModelChange)="resetError()">
+                <label for="password">
+                    Lozinka:
+                </label>
+                <input type="password" name="password" required [(ngModel)]="lozinka" (ngModelChange)="resetError()">
+                <button (click)="prijava()"> 
+                    Prijavi se
+                </button>
+                <p class="password-info">
+                    Nova lozinka? <a routerLink="/promena-lozinke">Promenite lozinku</a>
+                </p>
+            </form>
+        </div>
+        <p class="error">{{greska}}</p>
+    </main>
+</body>

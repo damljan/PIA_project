@@ -1,0 +1,136 @@
+/* Reset osnovnih stilova za doslednost */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Osnovni stil za telo stranice */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Omogućava postavljanje header-a i footer-a na vrh i dno stranice */
+    height: 97vh; /* Visina prozora preglednika */
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+    background-color: #25ac2cde;
+    color: white;
+    padding: 12px 0;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Razmak između logotipa i naslova */
+}
+
+.logo {
+    width: 55px;
+    height: auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    flex-grow: 1; /* Omogućava da h1 bude centriran u sredini */
+}
+
+nav {
+    margin-left: auto; /* Postavlja navigaciju na desnu stranu */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Stilizovanje glavnog sadržaja */
+main {
+    flex: 1; /* Omogućava glavnom sadržaju da raste i popuni prostor između header-a i footer-a */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto; /* Omogućava skrolovanje ako je potrebno */
+}
+
+/* Osnovni stil za grid kontejner */
+.grid-container {
+    display: grid; /* Koristi CSS Grid */
+    grid-template-columns: repeat(2, 1fr); /* 2 kolone sa ravnomernim rasporedom */
+    grid-template-rows: repeat(2, 1fr); /* 2 reda sa ravnomernim rasporedom */
+    gap: 15px; /* Razmak između ćelija */
+    width: 100%; /* Širina grid kontejnera zauzima 100% širine kontejnera */
+    height: 100%; /* Visina grid kontejnera zauzima 100% visine kontejnera */
+}
+
+button {
+    border: none;
+    color: white; /* Bela boja teksta */
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px; /* Zaobljeni uglovi */
+    transition: background-color 0.3s ease; /* Glatka promena boje */
+    display: flex; /* Koristi flexbox za centriranje sadržaja */
+    align-items: center; /* Vertikalno centriranje */
+    justify-content: center; /* Horizontalno centriranje */
+    width: 100%; /* Dugme zauzima celu širinu ćelije */
+    height: 100%; /* Dugme zauzima celu visinu ćelije */
+    font-weight: bold;
+}
+
+/* Stilizacija dugmadi */
+.btn {
+    background-color:  #25ac2cde; /* Zelena boja za sve dugmadi */
+}
+
+button:hover {
+    opacity: 0.8; /* Malo smanjenje vidljivosti na hover */
+}
+
+/* Stilizovanje podnožja */
+footer {
+    background-color: #25ac2cde;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}

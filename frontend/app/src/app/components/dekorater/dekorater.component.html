@@ -1,0 +1,28 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Dekorater</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="grid-container">
+            <button (click)="idiNaProfil()" class="btn"><i>Profil</i></button>
+            <button (click)="idiNaZakazivanja()" class="btn"><i>Zakazivanja</i></button>
+            <button (click)="idiNaOdrzavanja()" class="btn"><i>Odrzavanja</i></button>
+            <button (click)="idiNaStatistiku()" class="btn"><i>Statistika</i></button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

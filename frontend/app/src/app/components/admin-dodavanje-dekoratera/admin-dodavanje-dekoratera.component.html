@@ -1,0 +1,91 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+              <a routerLink=''>
+                <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+            </a>
+            </div>
+            <h1>Dodavanje dekoratera</h1>
+            <nav>
+                <ul>
+                  <li><a routerLink='/admin'><i>Nazad</i></a></li>
+                  <li><a routerLink='/prijava-admin'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="registration-container">
+            
+            <div class="form-group">
+              <label for="username">Korisničko ime:</label>
+              <input type="text" id="username" name="username" [(ngModel)]="korisnicko_ime" (ngModelChange)="onKorisnickoImeChange()"/>
+              <p class="error">{{error_jedinstveno_kor_ime}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="password">Lozinka:</label>
+              <input type="password" id="password" name="password" [(ngModel)]="lozinka" (ngModelChange)="onLozinkaChange()"/>
+              <p class="error">{{error_format_lozinke}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="ime">Ime:</label>
+              <input type="text" id="ime" name="ime" [(ngModel)]="ime"/>
+            </div>
+          
+            <div class="form-group">
+              <label for="prezime">Prezime:</label>
+              <input type="text" id="prezime" name="prezime" [(ngModel)]="prezime"/>
+            </div>
+          
+            <div class="form-group">
+              <label for="pol">Pol:</label>
+              <select id="pol" name="pol" [(ngModel)]="pol">
+                <option value="M">M</option>
+                <option value="Ž">Ž</option>
+              </select>
+            </div>
+          
+            <div class="form-group">
+              <label for="adresa">Adresa:</label>
+              <input type="text" id="adresa" name="adresa" [(ngModel)]="adresa" 
+                placeholder="Ulica Broj, Grad, Država" (ngModelChange)="onAdresaChange()"/>
+              <p class="error">{{error_format_adrese}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="telefon">Kontakt telefon:</label>
+              <input type="tel" id="telefon" name="telefon" [(ngModel)]="kontakt_telefon"
+                placeholder="+38 . . ." (ngModelChange)="onTelefonChange()"/>
+              <p class="error">{{error_format_telefona}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="email">Imejl adresa:</label>
+              <input type="email" id="email" name="email" [(ngModel)]="imejl" (ngModelChange)="onImejlChange()"/>
+              <p class="error">{{error_jedinstveni_imejl}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="profilnaSlika">Profilna slika:</label>
+              <input type="file" id="profilnaSlika" (change)="onFileSelected($event)"/>
+              <p class="error">{{picture_error}}</p>
+            </div>
+          
+            <div class="form-group">
+                <label for="firma">Firma:</label>
+                <input type="text" id="firma" [(ngModel)]="dekorater_firma" (ngModelChange)="onFirmaChange()"/>
+                <p class="error">{{error_firma}}</p>
+              </div>
+
+            <button type="submit" (click)="registracija()">Dodaj novog dekoratera</button>
+        
+            <p class="error">{{error}}</p>
+          </div>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

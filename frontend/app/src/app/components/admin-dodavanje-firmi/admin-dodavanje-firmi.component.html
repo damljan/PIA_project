@@ -1,0 +1,81 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+              <a routerLink=''>
+                <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+            </a>
+            </div>
+            <h1>Dodavanje firme</h1>
+            <nav>
+                <ul>
+                  <li><a routerLink='/admin'><i>Nazad</i></a></li>
+                  <li><a routerLink='/prijava-admin'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="registration-container">
+            
+            <div class="form-group">
+              <label for="name">Naziv:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="naziv" (ngModelChange)="resetErrors()"/>
+              <p class="error">{{error_jedinstveni_naziv}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="adresa">Adresa:</label>
+              <input type="text" id="adresa" name="adresa" [(ngModel)]="adresa" 
+                placeholder="Ulica Broj, Grad, Država" (ngModelChange)="resetErrors()"/>
+              <p class="error">{{error_format_adrese}}</p>
+            </div>
+          
+            <div class="form-group">
+              <label for="telefon">Kontakt telefon:</label>
+              <input type="text" id="telefon" name="telefon" [(ngModel)]="kontakt_telefon"
+                placeholder="0xx/xxxx-xxx" (ngModelChange)="resetErrors()"/>
+              <p class="error">{{error_format_telefona}}</p>
+            </div>
+
+            <div class="form-group">
+                <label for="usluge_nazivi">Nazivi usluga:</label>
+                <textarea [(ngModel)]="usluge_nazivi" (ngModelChange)="resetErrors()"
+                placeholder="NAPOMENA: Nazive usluga razdvajati zapetom i jednim blanko znakom, pri čemu naziv usluge na i-toj poziciji odgovara ceni na istoj toj i-toj poziciji u tekstualnoj oblasni Cene usluga!"></textarea>
+                <p class="error">{{error_usluge_nazivi}}</p>
+            </div>
+
+            <div class="form-group">
+                <label for="usluge_cene">Cene usluga:</label>
+                <textarea [(ngModel)]="usluge_cene" (ngModelChange)="resetErrors()" 
+                placeholder="NAPOMENA: Cene usluga razdvajati zapetom i jednim blanko znakom, pri čemu cena usluge na i-toj poziciji odgovara nazivu na istoj toj i-toj poziciji u tekstualnoj oblasni Nazivi usluga!"></textarea>
+                <p class="error">{{error_usluge_cene}}</p>
+            </div>
+
+            <div class="form-group">
+                <label for="datum">Godišnji odmor:</label>
+                <input type="text" id="datum_od" name="datum_od" [(ngModel)]="godisnji_odmor_od"
+                  placeholder="OD: gggg-mm-dd hh:mm:ss" (ngModelChange)="resetErrors()"/>
+                <p class="error">{{ error_god_odmor_od}}</p>
+                <input type="text" id="datum_do" name="datum_do" [(ngModel)]="godisnji_odmor_do"
+                  placeholder="DO: gggg-mm-dd hh:mm:ss" (ngModelChange)="resetErrors()"/>
+                <p class="error">{{ error_god_odmor_do}}</p>
+            </div>
+
+            <div class="form-group">
+                <label for="dekorateri">Zaposleni dekorateri:</label>
+                <textarea [(ngModel)]="zaposleni_dekorateri" (ngModelChange)="resetErrors()"
+                placeholder="NAPOMENA: Unositi korisnička imena zaposlenih dekoratera, pri čemu su odvojena zapetom i jednim blanko znakom!"
+                ></textarea>
+                <p class="error">{{error_zaposleni_dekorateri}}</p>
+            </div>
+
+            <button type="submit" (click)="registracija()">Dodaj novu firmu</button>
+        
+            <p class="error">{{error}}</p>
+          </div>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

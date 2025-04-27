@@ -1,0 +1,55 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-and-title">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1><i>Promena lozinke</i></h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/prijava'><i>Nazad</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="update-password-container">
+            <form (ngSubmit)="promenaLozinke()">
+                <div class="form-group">
+                    <label for="kor_ime">Korisničko ime:</label>
+                    <input id="kor_ime" [(ngModel)]="kor_ime" name="kor_ime" type="text"
+                        (ngModelChange)="onUsernameChange()" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="stara_lozinka">Stara lozinka:</label>
+                    <input id="stara_lozinka" [(ngModel)]="stara_lozinka" name="stara_lozinka" type="password"
+                        (ngModelChange)="onOldPasswordChange()" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nova_lozinka">Nova lozinka:</label>
+                    <input id="nova_lozinka" [(ngModel)]="nova_lozinka" name="nova_lozinka" type="password"
+                        (ngModelChange)="onNewPasswordChange()" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="potvrda_lozinke">Potvrda nove lozinke:</label>
+                    <input id="potvrda_lozinke" [(ngModel)]="potvrda_lozinke" name="potvrda_lozinke" type="password"
+                        (ngModelChange)="onAcceptPasswordChange()" required>
+                </div>
+
+                <button type="submit">Promenite lozinku</button>
+
+                <p class="error">{{error}}</p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

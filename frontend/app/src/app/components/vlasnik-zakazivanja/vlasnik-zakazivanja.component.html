@@ -1,0 +1,81 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Zakazivanja</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="table-section">
+            <h2 class="naziv">Trenutna zakazivanja</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Datum početka</th>
+                            <th>Vreme početka</th>
+                            <th>Datum izrade</th>
+                            <th>Naziv firme</th>
+                            <th>Usluge</th>
+                            <th>Otkazivanje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let t of trenutnaZakazivanja">
+                            <td>{{t.pocetak.split(' ')[0]}}</td>
+                            <td>{{t.pocetak.split(' ')[1]}}</td>
+                            <td>{{t.zavrsetak == '' ? '?' : t.zavrsetak}}</td>
+                            <td><i>{{t.firma}}</i></td>
+                            <td>
+                                <ul *ngFor="let u of t.odabrane_usluge">
+                                    <li>{{u.naziv}}</li>
+                                </ul>
+                            </td>
+                            <td><button (click)="otkaziPosao(t.idP)"
+                                    [hidden]="daLiJeOtkaziOnemoguceno(t.pocetak)">Otkaži</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="table-section">
+            <h2 class="naziv">Prethodna zakazivanja</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Datum izrade</th>
+                            <th>Naziv firme</th>
+                            <th>Komentar</th>
+                            <th>Ocena</th>
+                            <th>Dodavanje komentara i ocene</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of prethodnaZakazivanja">
+                            <td>{{p.zavrsetak.split(' ')[0]}}</td>
+                            <td><i>{{p.firma}}</i></td>
+                            <td>{{p.komentar == '' ? '/' : p.komentar}}</td>
+                            <td>{{p.ocena == 0 ? '/' : p.ocena}}</td>
+                            <td><button (click)="dodajKomentarOcenu(p.idP)" class="plava"
+                                    [hidden]="p.komentar != '' && p.ocena != 0">Dodaj</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

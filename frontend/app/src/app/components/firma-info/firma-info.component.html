@@ -1,0 +1,219 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>{{firma.naziv}}</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik-firme'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="company-info">
+            <h2>Informacije o firmi</h2>
+            <table>
+                <tr>
+                    <td><b>Adresa:</b></td>
+                    <td>{{firma.adresa}}</td>
+                </tr>
+                <tr>
+                    <td><b>Kontakt telefon:</b></td>
+                    <td>{{firma.kontakt_telefon}}</td>
+                </tr>
+                <tr>
+                    <td><b>Cenovnik usluga:</b></td>
+                    <td>
+                        <ul class="services-list" *ngFor="let u of firma.usluge">
+                            <li>
+                                <span class="service-name">{{u.naziv}}</span>
+                                <span class="service-price">{{u.cena}} rsd</span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Komentari:</b></td>
+                    <td>
+                        <ul *ngFor="let k of komentari">
+                            <li>
+                                <i>
+                                    {{k}}
+                                </i>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <p class="napomena">
+                <b>NAPOMENA:</b> Cene usluga su po jedinici površine (metru kvadratnom).
+            </p>
+
+        </section>
+
+        <section class="map-container">
+            <h2>Gde nam možete naći?</h2>
+            <div id="map" class="map"></div>
+        </section>
+
+        <section class="garden-container">
+            <h2>Uredite svoju baštu</h2>
+
+            <div *ngIf="currentStep === 1">
+                <h3>Korak 1: Osnovni podaci</h3>
+                <table>
+                    <tr>
+                        <td>Početak uređivanja:</td>
+                        <td>
+                            <input type="date" [(ngModel)]="datum" required (ngModelChange)="resetError()">
+                            <input type="time" [(ngModel)]="vreme" required (ngModelChange)="resetError()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kvadratura bašte:</td>
+                        <td>
+                            <input type="number" min="0" [(ngModel)]="kvadratura" required
+                                (ngModelChange)="resetError()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tip:</td>
+                        <td>
+                            <input type="radio" name="tip" [(ngModel)]="tipBaste" value="privatna_basta"
+                                (ngModelChange)="resetError()"> privatna bašta
+                            <input type="radio" name="tip" [(ngModel)]="tipBaste" value="basta_restoran"
+                                (ngModelChange)="resetError()"> bašta restoran
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button (click)="nextStep()">Sledeći korak</button>
+                        </td>
+                    </tr>
+                </table>
+                <p class="error">
+                    {{error}}
+                </p>
+            </div>
+
+            <div *ngIf="currentStep === 2">
+                <h3>Korak 2: Dodatni podaci</h3>
+
+                <div *ngIf="tipBaste === 'privatna_basta'">
+                    <table>
+                        <tr>
+                            <td>Kvadratura za bazen:</td>
+                            <td><input type="number" [(ngModel)]="kvadraturaBazen" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Kvadratura za zelenilo:</td>
+                            <td><input type="number" [(ngModel)]="kvadraturaZelenilo" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Kvadratura za ležaljke:</td>
+                            <td><input type="number" [(ngModel)]="kvadraturaLezaljke" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Kvadratura za stolove:</td>
+                            <td><input type="number" [(ngModel)]="kvadraturaStolovi" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Dodatni zahtevi:</td>
+                            <td>
+                                <textarea id="zahtevi" [(ngModel)]="dodatniZahtevi" rows="3"
+                                    (ngModelChange)="resetError()"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Odaberite usluge:
+                            </td>
+                            <td>
+                                <table>
+                                    <tr *ngFor="let u of firma.usluge">
+                                        <input type="checkbox" (change)="dodajUslugu(u.naziv, $event)"> {{u.naziv}}
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div *ngIf="tipBaste === 'basta_restoran'">
+                    <table>
+                        <tr>
+                            <td>Kvadratura za fontanu:</td>
+                            <td><input type="number" [(ngModel)]="kvadraturaFontana" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Kvadratura za zelenilo:</td>
+                            <td><input type="number" [(ngModel)]="kvadraturaZeleniloRestoran" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Broj stolova:</td>
+                            <td><input type="number" [(ngModel)]="brojStolova" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Broj stolica:</td>
+                            <td><input type="number" [(ngModel)]="brojStolica" min="0" required
+                                    (ngModelChange)="resetError()"></td>
+                        </tr>
+                        <tr>
+                            <td>Dodatni zahtevi:</td>
+                            <td>
+                                <textarea id="zahtevi" [(ngModel)]="dodatniZahtevi" rows="3"
+                                    (ngModelChange)="resetError()"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Odaberite usluge:
+                            </td>
+                            <td>
+                                <table>
+                                    <tr *ngFor="let u of firma.usluge">
+                                        <input type="checkbox" (change)="dodajUslugu(u.naziv, $event)"> {{u.naziv}}
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- <button (click)="prevStep()">Prethodni korak</button> -->
+                <button (click)="zakazi()" [disabled]="odabraneUsluge.length == 0">Završi</button>
+
+                <p class="error">
+                    {{error}}
+                </p>
+            </div>
+        </section>
+        
+        <section class="json-container">
+            <h2>Uvezite JSON fajl uređene bašte</h2>
+            <input type="file" (change)="uploadFile($event)" accept=".json" />
+            <button (click)="saveToDatabase()">Učitaj i sačuvaj</button>
+            <button [disabled]="!bastaZaCrtanje" (click)="iscrtajBastu()">Iscrtaj baštu</button>
+        </section>
+
+        <section>
+            <canvas *ngIf="bastaZaCrtanje" id="mojCanvas" width="800" height="600"></canvas>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

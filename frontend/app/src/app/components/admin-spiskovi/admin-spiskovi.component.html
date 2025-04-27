@@ -1,0 +1,73 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Spiskovi</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/admin'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava-admin'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="table-section">
+            <h2>Spisak svih korisnika</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>Korisničko ime</th>
+                            <th>E-mail adresa</th>
+                            <th>Adresa</th>
+                            <th>Kontakt telefon</th>
+                            <th>Tip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let k of sviKorisnici">
+                            <td>{{k.ime}}</td>
+                            <td>{{k.prezime}}</td>
+                            <td>{{k.korisnicko_ime}}</td>
+                            <td>{{k.imejl}}</td>
+                            <td><i>{{k.adresa}}</i></td>
+                            <td>{{k.kontakt_telefon}}</td>
+                            <td>{{k.tip}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="table-section">
+            <h2>Spisak svih firmi</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Naziv</th>
+                            <th>Adresa</th>
+                            <th>Kontakt telefon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let f of sveFirme">
+                            <td>{{f.naziv}}</td>
+                            <td><i>{{f.adresa}}</i></td>
+                            <td>{{f.kontakt_telefon}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

@@ -1,0 +1,47 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Statistika</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/dekorater'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="kolona">
+            Dijagram sa kolonama/barovima, koji prikazuje broj poslova po mesecima za dekoratera
+        </h2>
+        <div class="chart-container">
+            <canvas id="chartBar"></canvas>
+        </div>
+        <hr>
+
+        <h2 class="pita">
+            Dijagram <i>„pita“</i>, koji prikazuje raspodelu svih poslova među dekoraterima unutar firme u kojoj rade
+        </h2>
+        <div class="chart-container">
+            <canvas id="chartPie"></canvas>
+        </div>
+        <hr>
+
+        <h2 class="histogram">
+            Dijagram histogram, koji prikazuje u kojim danima u nedelji je prosečan mesečni broj poslova u poslednja 24 meseca
+        </h2>
+        <div class="chart-container">
+            <canvas id="chartHistogram"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

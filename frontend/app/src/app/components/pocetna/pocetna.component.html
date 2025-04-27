@@ -1,0 +1,133 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-and-title">
+                <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                <h1><i>Vaša mašta - vaša bašta</i></h1>
+            </div>
+            <nav class="pocetak">
+                <ul>
+                    <li><a routerLink='/prijava'><i>Prijavite se</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="company-info">
+            <h2>Opšte informacije</h2>
+            <div class="info-row">
+                <p><b>Ukupan broj dekorisanih bašta:</b></p>
+                <p class="info-number">{{ ukupanBrojDekorisanihBasta }}</p>
+            </div>
+            <hr>
+            <div class="info-row">
+                <p><b>Ukupan broj registrovanih vlasnika:</b></p>
+                <p class="info-number">{{ ukupanBrojVlasnika }}</p>
+            </div>
+            <hr>
+            <div class="info-row">
+                <p><b>Ukupan broj registrovanih dekoratera:</b></p>
+                <p class="info-number">{{ ukupanBrojDekoratEra }}</p>
+            </div>
+            <hr>
+            <div class="info-row">
+                <p><b>Zakazani poslovi u poslednjih 24h:</b></p>
+                <p class="info-number">{{ zakazaniPoslovi24h }}</p>
+            </div>
+            <hr>
+            <div class="info-row">
+                <p><b>Zakazani poslovi u poslednjih 7 dana:</b></p>
+                <p class="info-number">{{ zakazaniPoslovi7d }}</p>
+            </div>
+            <hr>
+            <div class="info-row">
+                <p><b>Zakazani poslovi u poslednjih 30 dana:</b></p>
+                <p class="info-number">{{ zakazaniPoslovi30d }}</p>
+            </div>
+        </section>
+
+
+        <section class="search-section">
+            <h2>Pretražite firmu</h2>
+            <div class="form-group">
+                <label for="imePretraga">Naziv:</label>
+                <input id="imePretraga" type="text" name="imePretraga" placeholder="Unesite naziv firme"
+                    [(ngModel)]="naziv" (ngModelChange)="resetErrors()">
+            </div>
+            <div class="form-group">
+                <label for="adresaPretraga">Adresa:</label>
+                <input id="adresaPretraga" type="text" name="adresaPretraga" placeholder="Unesite adresu firme"
+                    [(ngModel)]="adresa" (ngModelChange)="resetErrors()">
+            </div>
+            <button type="submit" (click)="pretraziFirmu()" class="btn-primary">Pretraži</button>
+            <p class="napomena">
+                <i><b>NAPOMENA:</b> Ako se ne unese parametar pretrage, biće prikazane sve firme iz sistema!</i>
+            </p>
+            <p class="error-msg">{{poruka}}</p>
+        </section>
+
+        <section class="table-section">
+            <h2>Spisak svih firmi</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Naziv</th>
+                            <th>Adresa</th>
+                            <th>Zaposleni dekorateri</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let f of sveFirme">
+                            <td class="link"><b>{{f.naziv}}</b></td>
+                            <td><i>{{f.adresa}}</i></td>
+                            <td>
+                                <ul *ngIf="f.imePrezime; else noDecorators">
+                                    <li *ngFor="let d of f.imePrezime.split(', ')">{{ d }}</li>
+                                </ul>
+                                <ng-template #noDecorators>Nema dekoratera</ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="sort-section">
+            <h2>Sortiranje firmi</h2>
+            <div class="sort-container">
+                <div class="sort-group">
+                    <label>Sortirajte po nazivu:</label>
+                    <button class="btn-secondary" (click)="sortirajNeopadajucePoNazivu()">Neopadajuće</button>
+                    <button class="btn-secondary" (click)="sortirajNerastucePoNazivu()">Nerastuće</button>
+                </div>
+                <div class="sort-group">
+                    <label>Sortirajte po adresi:</label>
+                    <button class="btn-secondary" (click)="sortirajNeopadajucePoAdresi()">Neopadajuće</button>
+                    <button class="btn-secondary" (click)="sortirajNerastucePoAdresi()">Nerastuće</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h2>Galerija završenih poslova</h2>
+            <ng-container *ngFor="let p of zavrseniPosloviFoto">
+                <img 
+                    [src]="'http://localhost:4000/uploads/garden_pictures/' + p.fotografija" 
+                    (click)="openModal('http://localhost:4000/uploads/garden_pictures/' + p.fotografija)" 
+                    alt="Završeni posao" 
+                    class="gallery-image">
+            </ng-container>
+        </section>
+        
+        <!-- Modal za uvećanu sliku -->
+        <div class="modal" *ngIf="selectedImage" (click)="closeModal()">
+            <img [src]="selectedImage" alt="Uvećana slika" class="modal-content" (click)="$event.stopPropagation()">
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

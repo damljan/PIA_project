@@ -1,0 +1,46 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Zahtevi</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/admin'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava-admin'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="table-section">
+            <p class="black"><b>Spisak svih vlasnika na čekanju</b></p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ime i prezime</th>
+                        <th>Akcija 1</th>
+                        <th>Akcija 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let v of vlasniciNaCekanju">
+                        <td>{{v.ime}} {{v.prezime}}</td>
+                        <td class="button-cell">
+                            <button (click)="prihvatiVlasnika(v.korisnicko_ime)" class="activate-button">Prihvati</button>
+                        </td>
+                        <td class="button-cell">
+                            <button (click)="odbijVlasnika(v.korisnicko_ime)" class="deactivate-button">Odbij</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>

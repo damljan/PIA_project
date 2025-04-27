@@ -1,0 +1,157 @@
+/* Reset osnovnih stilova za doslednost */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Osnovni stil za telo stranice */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Popuni celu visinu prozora */
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Stilizovanje zaglavlja */
+header {
+  background-color: #25ac2cde;
+  color: white;
+  padding: 12px 0;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 55px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  flex-grow: 1;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Stilizovanje glavnog sadržaja */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Poravnavanje na vrh */
+  padding: 20px;
+}
+
+.registration-container {
+  width: 400px;
+  margin: 30px auto; /* Razmak od vrha */
+  padding: 20px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%; /* Puni širinu */
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #25ac2cde;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #23c12bde;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input#kreditna_kartica {
+  width: calc(100% - 50px); /* Prilagodite širinu da ostavite mesto za ikonu */
+}
+
+.card-icon {
+  width: 40px; /* Prilagodite veličinu ikone */
+  height: auto;
+  position: absolute;
+  right: 1px; /* Razmak od desne ivice */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Stilizovanje podnožja */
+footer {
+  background-color: #25ac2cde;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+}

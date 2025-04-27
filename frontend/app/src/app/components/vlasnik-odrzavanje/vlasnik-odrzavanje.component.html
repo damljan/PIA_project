@@ -1,0 +1,71 @@
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <a routerLink=''>
+                    <img src="assets/pictures/logo.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            <h1>Održavanja</h1>
+            <nav>
+                <ul>
+                    <li><a routerLink='/vlasnik'><i>Nazad</i></a></li>
+                    <li><a routerLink='/prijava'><i>Odjava</i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="table-section">
+            <h2 class="naziv">Završeni poslovi</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Datum završetka</th>
+                            <th>Datum održavanja</th>
+                            <th>Broj bazena</th>
+                            <th>Broj fontani</th>
+                            <th>Zakažite održavanje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of prethodnaZakazivanja">
+                            <td>{{p.zavrsetak.split(' ')[0]}}</td>
+                            <td>{{p.poslednje_odrzavanje == '' ? p.zavrsetak.split(' ')[0] : p.poslednje_odrzavanje.split(' ')[0]}}</td>
+                            <td>{{p.tip_baste == 'privatna_basta' ? '1' : '0'}}</td>
+                            <td>{{p.tip_baste != 'privatna_basta' ? '1' : '0'}}</td>
+                            <td>
+                                <button (click)="zakaziOdrzavanje(p.idP)" [hidden]="proveraSestMeseci(p.zavrsetak, p.poslednje_odrzavanje, p.zakazano_odrzavanje) != true">Zakaži</button>
+                            </td>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="table-section">
+            <h2 class="naziv">Evidencija zakazanih održavanja</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Datum održavanja</th>
+                            <th>Tip bašte</th>
+                            <th>Broj bazena</th>
+                            <th>Broj fontani</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of vlasnikovaOdrzavanja">
+                            <td>{{p.pocetak_odrzavanja.split(' ')[0]}}</td>
+                            <td>{{p.tip_baste}}</td>
+                            <td>{{p.tip_baste == 'privatna_basta' ? '1' : '0'}}</td>
+                            <td>{{p.tip_baste != 'privatna_basta' ? '1' : '0'}}</td>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <i>2024 Vaša mašta - vaša bašta</i></p>
+    </footer>
+</body>
